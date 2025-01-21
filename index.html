@@ -7,54 +7,80 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: #f8f9fa;
+            color: #212529;
+            font-family: 'Roboto', sans-serif;
         }
         header {
-            background: #0078d7;
+            background: linear-gradient(90deg, #0078d7, #00a8ff);
             color: white;
-            padding: 20px 10px;
+            padding: 40px 20px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            font-weight: 700;
         }
         header p {
             margin: 10px 0 0;
-            font-size: 1.2em;
+            font-size: 1.3em;
         }
         section {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
         }
         section h2 {
             color: #0078d7;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        .list-group-item {
+            border: none;
+            background-color: #f8f9fa;
+            padding: 15px;
+            font-size: 1.1em;
         }
         footer {
-            background: #333;
+            background: #212529;
             color: white;
             text-align: center;
-            padding: 10px;
-            margin-top: 20px;
+            padding: 20px;
+            margin-top: 40px;
         }
         footer p {
             margin: 0;
+            font-size: 0.9em;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #0078d7, #00a8ff);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #005bb5, #007bbf);
         }
     </style>
 </head>
 <body>
-    <header class="py-3">
+    <header class="py-5">
         <h1>Welcome to the Innovation Function</h1>
         <p>Driving transformative ideas and outcomes</p>
     </header>
 
-    <section class="container mt-4">
+    <section class="container mt-5">
         <h2>Our Mission</h2>
         <p>We leverage AI and software technology to help GiG+ innovate on products, ways of working and operating models.</p>
 
@@ -73,9 +99,10 @@
 
         <h2>Join Us</h2>
         <p>If you're passionate about innovation and want to make an impact, connect with us to explore opportunities and collaborations. Together, we can create a future that inspires and empowers.</p>
+        <a href="#" class="btn btn-primary">Contact Us</a>
     </section>
 
-    <footer class="py-3">
+    <footer class="py-4">
         <p>&copy; 2025 Innovation Function. All rights reserved.</p>
     </footer>
 
