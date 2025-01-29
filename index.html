@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hiring Intake Form</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="https://unpkg.com/@vueform/multiselect@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@vueform/multiselect@latest"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vueform/multiselect/themes/default.css">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.4/dist/tailwind.min.css" rel="stylesheet">
 </head>
@@ -16,6 +16,9 @@
     const { createApp, ref } = Vue;
 
     createApp({
+      components: {
+        Multiselect: window['@vueform/multiselect']
+      },
       data() {
         return {
           submitted: false,
@@ -79,10 +82,10 @@
           </select>
           
           <label class='block font-medium mt-4'>Languages Required:</label>
-          <multiselect v-model='formData.languages' :options='languages' multiple class='input-field' />
+          <Multiselect v-model='formData.languages' :options='languages' multiple class='input-field' />
           
           <label class='block font-medium mt-4'>Exclude Countries:</label>
-          <multiselect v-model='formData.excludedCountries' :options='countries' multiple class='input-field' />
+          <Multiselect v-model='formData.excludedCountries' :options='countries' multiple class='input-field' />
           
           <button @click='submitForm' class='w-full mt-6 bg-blue-600 text-white py-2 rounded-xl'>Submit</button>
         </div>
