@@ -7,7 +7,7 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://unpkg.com/@vueform/multiselect@latest"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vueform/multiselect/themes/default.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.4/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="min-h-screen flex items-center justify-center bg-gray-100 p-6">
   <div id="app"></div>
@@ -51,7 +51,42 @@
             alert("Form successfully submitted!");
           }, 2000);
         }
-      }
+      },
+      template: `
+        <div class='max-w-xl w-full p-6 bg-white shadow-xl rounded-2xl'>
+          <h2 class='text-2xl font-bold text-gray-800 mb-4'>Hiring Intake Form</h2>
+          
+          <label class='block font-medium'>Select Partner:</label>
+          <select v-model='formData.partner' class='input-field'>
+            <option v-for='option in partners' :key='option' :value='option'>{{ option }}</option>
+          </select>
+          
+          <div v-for='(profile, index) in formData.profiles' :key='index' class='mt-4'>
+            <div class='flex items-center gap-2'>
+              <select v-model='profile.role' class='input-field'>
+                <option v-for='option in roles' :key='option' :value='option'>{{ option }}</option>
+              </select>
+              <input v-model.number='profile.count' type='number' min='1' class='input-field w-20' placeholder='#' />
+              <button @click='removeProfile(index)' class='text-red-500'>✖</button>
+            </div>
+          </div>
+          
+          <button @click='addProfile' class='mt-2 text-blue-500'>+ Add Profile</button>
+          
+          <label class='block font-medium mt-4'>Select Line of Business:</label>
+          <select v-model='formData.business' class='input-field'>
+            <option v-for='option in businessLines' :key='option' :value='option'>{{ option }}</option>
+          </select>
+          
+          <label class='block font-medium mt-4'>Languages Required:</label>
+          <multiselect v-model='formData.languages' :options='languages' multiple class='input-field' />
+          
+          <label class='block font-medium mt-4'>Exclude Countries:</label>
+          <multiselect v-model='formData.excludedCountries' :options='countries' multiple class='input-field' />
+          
+          <button @click='submitForm' class='w-full mt-6 bg-blue-600 text-white py-2 rounded-xl'>Submit</button>
+        </div>
+      `
     }).mount("#app");
   </script>
 </body>
